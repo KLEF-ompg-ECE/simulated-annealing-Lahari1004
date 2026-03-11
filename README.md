@@ -55,7 +55,7 @@ python sa_timetable.py
 
 **Copy the printed timetable output here:**
  Final Timetable:
- 
+
   Slot 1:  Geography
   Slot 2:  Chemistry, English
   Slot 3:  History, Computer Science, Economics
@@ -64,11 +64,7 @@ python sa_timetable.py
 
 **Look at `plots/experiment_1.png` and describe what you see (2–3 sentences).**  
 *Where does the biggest drop in clashes happen? Does the curve flatten out?*
-```
-[ YOUR OBSERVATION ]
-```
-
----
+ANS: The number of clashes decreases quickly at the beginning, with the biggest drop occurring within the first ~100 iterations where it falls from about 12 to around 6. After that, the improvements become smaller and slower. The curve flattens after roughly 400–500 iterations, stabilizing around 3–4 clashes as the temperature becomes very low.
 
 ## Experiment 2 — Effect of Cooling Rate
 
@@ -80,7 +76,7 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 
 | cooling_rate | Final clashes | Iterations completed | Reached 0 clashes? |
 |-------------|---------------|----------------------|--------------------|
-| 0.80        |               |                      |                    |
+| 0.80        |  8            |          31          |          No        |
 | 0.95        |               |                      |                    |
 | 0.995       |               |                      |                    |
 

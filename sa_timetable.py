@@ -228,10 +228,18 @@ if __name__ == "__main__":
 
     # --- Copy and edit below this line ---
 
-    # tt2, clashes2, cl2, tl2 = run_sa(
-    #     initial_temp=100.0, cooling_rate=0.80,    # <- change this
-    #     min_temp=0.1, max_iterations=5000, seed=42
-    # )
-    # print_timetable(tt2)
-    # print(f"  Final clashes : {clashes2}")
-    # save_plot(cl2, tl2, "plots/experiment_2a.png", "cooling_rate=0.80")   # <- change filename
+    # ======================================================================
+    # EXPERIMENT 2a - cooling_rate = 0.80
+    # ======================================================================
+
+    tt2, clashes2, cl2, tl2 = run_sa(
+        initial_temp=100.0, cooling_rate=0.80,
+        min_temp=0.1, max_iterations=5000, seed=42
+    )
+
+    print("\nEXPERIMENT 2a - cooling_rate=0.80")
+    print_timetable(tt2)
+    print(f"  Iterations     : {len(cl2)}")
+    print(f"  Final clashes  : {clashes2}")
+
+    save_plot(cl2, tl2,"plots/experiment_2a.png","cooling_rate=0.80")
