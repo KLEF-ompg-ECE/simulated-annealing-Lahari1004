@@ -21,20 +21,25 @@
 Open `sa_timetable.py` and read through it. Then answer these questions.
 
 **Q1. What does `count_clashes()` measure? What value means a perfect timetable?**
-ANS: count_clashes() calculates the number of exam conflicts for students.A clash happens when a student has two exams scheduled in the same time slot.A perfect timetable has a clash value of 0.
+```
+count_clashes() calculates the number of exam conflicts for students.A clash happens when a student has two exams scheduled in the same time slot.A perfect timetable has a clash value of 0.
+```
 
 **Q2. What does `generate_neighbor()` do? How is the new timetable different from the current one?**
-ANS: generate_neighbor() creates a new timetable by randomly selecting one exam and moving it to a different time slot. 
+```
+generate_neighbor() creates a new timetable by randomly selecting one exam and moving it to a different time slot. 
 All other exams stay the same.This small change allows Simulated Annealing to explore nearby solutions.
+```
 
 **Q3. In `run_sa()`, there is this line:**
 ```python
 if delta < 0 or random.random() < math.exp(-delta / T):
 ```
 **What does this line decide? Why does SA sometimes accept a worse solution?**
-ANS:This line decides whether the algorithm should accept the new solution. If the new solution is better (delta < 0) it is always accepted.If it is worse, it may
+```
+This line decides whether the algorithm should accept the new solution. If the new solution is better (delta < 0) it is always accepted.If it is worse, it may
 still be accepted with a probability depending on the temperature. This helps the algorithm escape local minima and explore more solutions.
-
+```
 ---
 
 ## Experiment 1 — Baseline Run
@@ -54,6 +59,7 @@ python sa_timetable.py
 | Did SA reach 0 clashes? (Yes / No) |No|
 
 **Copy the printed timetable output here:**
+```
  Final Timetable:
 
   Slot 1:  Geography
@@ -61,10 +67,13 @@ python sa_timetable.py
   Slot 3:  History, Computer Science, Economics
   Slot 4:  Biology, Statistics
   Slot 5:  Mathematics, Physics
+```
 
 **Look at `plots/experiment_1.png` and describe what you see (2–3 sentences).**  
 *Where does the biggest drop in clashes happen? Does the curve flatten out?*
-ANS: The number of clashes decreases quickly at the beginning, with the biggest drop occurring within the first ~100 iterations where it falls from about 12 to around 6. After that, the improvements become smaller and slower. The curve flattens after roughly 400–500 iterations, stabilizing around 3–4 clashes as the temperature becomes very low.
+```
+The number of clashes decreases quickly at the beginning, with the biggest drop occurring within the first ~100 iterations where it falls from about 12 to around 6. After that, the improvements become smaller and slower. The curve flattens after roughly 400–500 iterations, stabilizing around 3–4 clashes as the temperature becomes very low.
+```
 
 ## Experiment 2 — Effect of Cooling Rate
 
@@ -82,10 +91,14 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 
 **Compare the three plots. What do you notice about how fast vs slow cooling affects the result? (3–4 sentences)**  
 *Hint: Fast cooling = temperature drops quickly. Does it have time to explore well?*
-ANS: With fast cooling (0.80), the temperature drops very quickly and the algorithm stops after only a few iterations, so it does not explore much and ends with a higher number of clashes. With moderate cooling (0.95), the algorithm runs longer and is able to reduce the clashes significantly. Very slow cooling (0.995) allows even more exploration and gradual improvements over many iterations.
+```
+With fast cooling (0.80), the temperature drops very quickly and the algorithm stops after only a few iterations, so it does not explore much and ends with a higher number of clashes. With moderate cooling (0.95), the algorithm runs longer and is able to reduce the clashes significantly. Very slow cooling (0.995) allows even more exploration and gradual improvements over many iterations.
+```
 
 **Which cooling_rate gave the best result? Why do you think that is?**
-ANS: The best result was obtained with cooling_rate = 0.95 and 0.995, both reaching 3 final clashes. However, 0.95 is more efficient because it achieves the same result with far fewer iterations. This suggests that a moderate cooling rate provides a good balance between exploration and runtime.
+```
+The best result was obtained with cooling_rate = 0.95 and 0.995, both reaching 3 final clashes. However, 0.95 is more efficient because it achieves the same result with far fewer iterations. This suggests that a moderate cooling rate provides a good balance between exploration and runtime.
+```
 
 ## Summary
 
@@ -93,21 +106,19 @@ ANS: The best result was obtained with cooling_rate = 0.95 and 0.995, both reach
 
 | Experiment | Key setting | Final clashes | Main finding in one sentence |
 |------------|-------------|---------------|------------------------------|
-| 1 — Baseline | cooling_rate = 0.995 | | |
-| 2 — Cooling rate | cooling_rate =  | | |
+| 1 — Baseline | cooling_rate = 0.995 |3|Slow cooling improves solution gradually. |
+| 2 — Cooling rate | cooling_rate = 0.95 |3| Moderate cooling gives good results faster.|
 
 **In your own words — what is the most important thing you learned about Simulated Annealing from these experiments? (3–5 sentences)**
 ```
-[ YOUR REFLECTION ]
+The experiments showed that the cooling schedule strongly affects the performance of Simulated Annealing. If the temperature decreases too quickly, the algorithm may get stuck in a poor solution because it cannot explore enough. Slower cooling allows the algorithm to explore more possible solutions and often find better results. However, very slow cooling increases the runtime significantly. Therefore, choosing an appropriate cooling rate is important to balance solution quality and efficiency.
 ```
-
----
 
 ## Submission Checklist
 
-- [ ] Student name and ID filled in
-- [ ] Q1, Q2, Q3 answered
-- [ ] Experiment 1: table filled, timetable pasted, plot observation written
-- [ ] Experiment 2: results table filled (3 rows), observation and answer written
-- [ ] Summary table completed and reflection written
-- [ ] `plots/` contains: `experiment_1.png`, `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`
+- [x] Student name and ID filled in
+- [x] Q1, Q2, Q3 answered
+- [x] Experiment 1: table filled, timetable pasted, plot observation written
+- [x] Experiment 2: results table filled (3 rows), observation and answer written
+- [x] Summary table completed and reflection written
+- [x] `plots/` contains: `experiment_1.png`, `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`
