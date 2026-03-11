@@ -76,8 +76,8 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 
 | cooling_rate | Final clashes | Iterations completed | Reached 0 clashes? |
 |-------------|---------------|----------------------|--------------------|
-| 0.80        |  8            |          31          |          No        |
-| 0.95        |               |                      |                    |
+| 0.80        |      8        |          31          |        No          |
+| 0.95        |      3        |         135          |        No          |
 | 0.995       |               |                      |                    |
 
 **Compare the three plots. What do you notice about how fast vs slow cooling affects the result? (3–4 sentences)**  
