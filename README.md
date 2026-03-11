@@ -78,20 +78,14 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 |-------------|---------------|----------------------|--------------------|
 | 0.80        |      8        |          31          |        No          |
 | 0.95        |      3        |         135          |        No          |
-| 0.995       |               |                      |                    |
+| 0.995       |      3        |        1379          |        No          |
 
 **Compare the three plots. What do you notice about how fast vs slow cooling affects the result? (3–4 sentences)**  
 *Hint: Fast cooling = temperature drops quickly. Does it have time to explore well?*
-```
-[ YOUR OBSERVATION ]
-```
+ANS: With fast cooling (0.80), the temperature drops very quickly and the algorithm stops after only a few iterations, so it does not explore much and ends with a higher number of clashes. With moderate cooling (0.95), the algorithm runs longer and is able to reduce the clashes significantly. Very slow cooling (0.995) allows even more exploration and gradual improvements over many iterations.
 
 **Which cooling_rate gave the best result? Why do you think that is?**
-```
-[ YOUR ANSWER ]
-```
-
----
+ANS: The best result was obtained with cooling_rate = 0.95 and 0.995, both reaching 3 final clashes. However, 0.95 is more efficient because it achieves the same result with far fewer iterations. This suggests that a moderate cooling rate provides a good balance between exploration and runtime.
 
 ## Summary
 
@@ -100,7 +94,7 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 | Experiment | Key setting | Final clashes | Main finding in one sentence |
 |------------|-------------|---------------|------------------------------|
 | 1 — Baseline | cooling_rate = 0.995 | | |
-| 2 — Cooling rate | cooling_rate = ___ | | |
+| 2 — Cooling rate | cooling_rate =  | | |
 
 **In your own words — what is the most important thing you learned about Simulated Annealing from these experiments? (3–5 sentences)**
 ```

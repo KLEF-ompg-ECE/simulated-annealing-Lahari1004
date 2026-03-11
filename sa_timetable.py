@@ -259,3 +259,19 @@ if __name__ == "__main__":
     print(f"  Final clashes  : {clashes3}")
 
     save_plot(cl3, tl3,"plots/experiment_2b.png","cooling_rate=0.95")
+
+    # ======================================================================
+    # EXPERIMENT 2c - cooling_rate = 0.995
+    # ======================================================================
+
+    tt4, clashes4, cl4, tl4 = run_sa(
+       initial_temp=100.0, cooling_rate=0.995,
+       min_temp=0.1, max_iterations=5000, seed=42
+    )
+
+    print("\nEXPERIMENT 2c - cooling_rate=0.995")
+    print_timetable(tt4)
+    print(f"  Iterations     : {len(cl4)}")
+    print(f"  Final clashes  : {clashes4}")
+
+    save_plot(cl4, tl4,"plots/experiment_2c.png","cooling_rate=0.995")
